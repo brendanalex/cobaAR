@@ -111,9 +111,9 @@ class CustomARView: ARView {
         
         arview.scene.addAnchor(anchor)
         
-        for anim in bee.availableAnimations {
-            bee.playAnimation(anim.repeat(duration: .infinity), transitionDuration: 1.25, startsPaused: false)
-        }
+//        for anim in bee.availableAnimations {
+//            bee.playAnimation(anim.repeat(duration: .infinity), transitionDuration: 1.25, startsPaused: false)
+//        }
         
 //        PlaygroundSupport.PlaygroundPage.current.liveView = arview
     }
