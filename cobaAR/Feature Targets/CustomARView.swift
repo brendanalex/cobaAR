@@ -90,7 +90,6 @@ class CustomARView: ARView {
     }
     
     func bee(){
-        let arview = ARView(frame: .zero, cameraMode: .nonAR, automaticallyConfigureSession: true)
         
         // Load Bee USDZ file
         let bee = try! Entity.load(named: "Microsoft_Bee")
@@ -99,22 +98,14 @@ class CustomARView: ARView {
         bee.scale = SIMD3<Float>(repeating: 0.001)
         bee.transform.translation = SIMD3<Float>(x: 0, y: 3, z: -2.0)
         
-        
-        // Default Block In Case Error
-//        let block = MeshResource.generateBox(size: 1)
-//        let material = SimpleMaterial(color: .blue, isMetallic: false)
-//        let defaultEntity = ModelEntity(mesh: block, materials: [material])
-        
         // Make an anchor and add a child entity to that anchor
         let anchor = AnchorEntity(plane: .horizontal)
         anchor.addChild(bee)
         
-        arview.scene.addAnchor(anchor)
+        scene.addAnchor(anchor)
         
-//        for anim in bee.availableAnimations {
-//            bee.playAnimation(anim.repeat(duration: .infinity), transitionDuration: 1.25, startsPaused: false)
-//        }
-        
-//        PlaygroundSupport.PlaygroundPage.current.liveView = arview
+        for anim in bee.availableAnimations {
+            bee.playAnimation(anim.repeat(duration: .infinity), transitionDuration: 1.25, startsPaused: false)
+        }
     }
 }
